@@ -17,7 +17,7 @@ do
 done
 echo "Make dir: $makeDir";
 echo "Run command: $runCmd";
-echo "Path to .cu file: $cuPath";
+echo "Path to .cu file: $cuPath"; 
 
 # edit files and do stuff here
 
