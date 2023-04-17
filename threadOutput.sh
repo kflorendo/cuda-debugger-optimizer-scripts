@@ -19,7 +19,18 @@ echo "Make dir: $makeDir";
 echo "Run command: $runCmd";
 echo "Path to .cu file: $cuPath"; 
 
-# edit files and do stuff here
+# save current contents to temp file
+tempCu="temp-$RANDOM.cu"
+cat $cuPath > tempCu
+
+# add a print statement
+insertLine=70
+sed -i "${insertLine} i printf(\"hello from bash script!\");" $cuPath
+# cat $cuPath
 
 (cd $makeDir && make)
 $runCmd
+
+# copy back original contents
+cp tempCu $cuPath
+rm tempCu
