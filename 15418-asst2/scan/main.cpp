@@ -144,7 +144,7 @@ int main(int argc, char** argv)
 
     if (test.compare("scan") == 0) { // test exclusive scan
         // run CUDA implementation
-        for (int i=0; i<3; i++) {
+        for (int i=0; i<1; i++) {
             if (useThrust)
                 cudaTime = std::min(cudaTime, cudaScanThrust(inarray, inarray+N, resultarray));
             else
@@ -154,29 +154,29 @@ int main(int argc, char** argv)
         int printstart = 0;
         int printend = 16;
 
-        // print original array
-        printf("original array:");
-        for (int i = printstart; i < printend; i++) {
-            printf("%d ", inarray[i]);
-        }
-        printf("\n");
+        // // print original array
+        // printf("original array:");
+        // for (int i = printstart; i < printend; i++) {
+        //     printf("%d ", inarray[i]);
+        // }
+        // printf("\n");
 
-        // print our output
-        printf("our array    :");
-        for (int i = printstart; i < printend; i++) {
-            printf("%d ", resultarray[i]);
-        }
-        printf("\n");
+        // // print our output
+        // printf("our array    :");
+        // for (int i = printstart; i < printend; i++) {
+        //     printf("%d ", resultarray[i]);
+        // }
+        // printf("\n");
 
         // run CPU implementation to check correctness
         cpu_exclusive_scan(inarray, inarray+N, checkarray);
 
-        // print their output
-        printf("their array   :");
-        for (int i = printstart; i < printend; i++) {
-            printf("%d ", checkarray[i]);
-        }
-        printf("\n");
+        // // print their output
+        // printf("their array   :");
+        // for (int i = printstart; i < printend; i++) {
+        //     printf("%d ", checkarray[i]);
+        // }
+        // printf("\n");
 
         if (useThrust) { 
             printf("Thrust GPU_time: %.3f ms\n", 1000.f * cudaTime);

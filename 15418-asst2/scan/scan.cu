@@ -58,8 +58,9 @@ upsweep_kernel(int N, int twod, int* device_data) {
     int twod1 = twod*2;
     i = i * twod1;
     // printf("blockidx: %d blockDim.x: %d threadIdx.x: %d i: %d\n", blockIdx.x, blockDim.x, threadIdx.x, i);
-    if (i+twod1-1 < N && i+twod-1 < N)
+    if (i+twod1-1 < N && i+twod-1 < N) {
         device_data[i+twod1-1] += device_data[i+twod-1];
+    }
 }
 
 __global__ void
@@ -98,7 +99,7 @@ void exclusive_scan(int* device_data, int length)
      * power of 2 larger than the input.
      */
     int N = length;
-    int threadsPerBlock = 128;
+    int threadsPerBlock = 16;
 
     // int nextPow2_N = nextPow2(N);
     int length_of_array = nextPow2(N);
