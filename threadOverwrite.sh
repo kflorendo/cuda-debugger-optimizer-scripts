@@ -7,14 +7,13 @@
 # -c = path to .cu file
 # ./threadOutput.sh -m "/afs/andrew.cmu.edu/usr16/kflorend/private/15418/project/15418-asst2/scan" -r "/afs/andrew.cmu.edu/usr16/kflorend/private/15418/project/15418-asst2/scan/cudaScan -m scan -i random -n 100" -c "/afs/andrew.cmu.edu/usr16/kflorend/private/15418/project/15418-asst2/scan/scan.cu"
 
-while getopts m:r:c:v:s:e: flag
+while getopts m:r:c:v:e: flag
 do
     case "${flag}" in
         m) makeDir=${OPTARG};;
         r) runCmd=${OPTARG};;
         c) cuPath=${OPTARG};;
         v) varName=${OPTARG};;
-        s) startLine=${OPTARG};;
         e) endLine=${OPTARG};;
     esac
 done
@@ -22,8 +21,7 @@ echo "Make dir: $makeDir";
 echo "Run command: $runCmd";
 echo "Path to .cu file: $cuPath"; 
 echo "Variable tracked: $varName";
-echo "Starting at line: $startLine";
-echo "Ending at line: $endLine";
+echo "Insert at line: $lineNum";
 
 # save current contents to temp file
 tempCu="temp-$RANDOM.cu"
@@ -33,7 +31,7 @@ cat $cuPath > tempCu
 insertLine=1
 # add print statements into file
 sed -i "${insertLine} i printf(\"blockIdx threadIdx address\");" $cuPath
-sed -i "${endLine} i printf(\"%d %d %d\", blockIdx, threadIdx, ${varName})" $cuPath
+sed -i "${lineNum} i printf(\"%d %d %d\", blockIdx, threadIdx, ${varName})" $cuPath
 # address column needed when var input is array (include index, multiple addresses)
 
 (cd $makeDir && make)
@@ -53,9 +51,10 @@ done < out.txt
 
 for key in "${!written[@]}"
 do 
-    if [ size("$key->${array[$key]}") -gt 1 ]
+    count=$(echo ${"$key->${array[$key]}"} | grep -Fo "," | wc -l)
+    if [ count -gt 1 ]
     then
-        echo "address ${varName} written to by ${$key->${array[$key]}}"
+        echo "address ${varName} written to by ${$key->${written[$key]}}"
     fi
 done
 
