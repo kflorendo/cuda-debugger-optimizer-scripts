@@ -45,7 +45,12 @@ sed -i "${insertLine} i ${insertText}" $cuPath
 (cd $makeDir && make)
 $runCmd > threadOutput.txt
 
+# filter output file
 sed -i "/^${prefix}/!d" threadOutput.txt
+sed -i "s/${prefix} //" threadOutput.txt
+
+# add file heading
+sed -i "1s/^/threadIdx.x blockIdx.x ${var}\n/" threadOutput.txt
 
 # copy back original contents
 cp tempCu $cuPath

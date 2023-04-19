@@ -27,16 +27,23 @@ echo "Insert at line: $lineNum";
 tempCu="temp-$RANDOM.cu"
 cat $cuPath > tempCu
 
+# get print prefix
+prefix="cuda-debug-optimize$(date +%s)"
+
 # add a print statement
 insertLine=1
 # add print statements into file
-sed -i "${insertLine} i printf(\"blockIdx threadIdx address\");" $cuPath
-sed -i "${lineNum} i printf(\"%d %d %d\", blockIdx, threadIdx, ${varName})" $cuPath
+# sed -i "${insertLine} i printf(\"blockIdx threadIdx address\");" $cuPath
+sed -i "${lineNum} i printf(\"${prefix} %d %d %u\\\\n\", blockIdx.x, threadIdx.x, &${varName});" $cuPath
 # address column needed when var input is array (include index, multiple addresses)
 
 (cd $makeDir && make)
 # write to file
 $runCmd > out.txt
+
+# filter output file
+sed -i "/^${prefix}/!d" out.txt
+sed -i "s/${prefix} //" out.txt
 
 # associative array (dict)
 declare -A written
@@ -49,12 +56,15 @@ done < out.txt
 
 #source: https://stackoverflow.com/questions/27832452/associate-multiple-values-for-one-key-in-array-in-bash
 
+touch threadOverwrite.txt
+> threadOverwrite.txt
 for key in "${!written[@]}"
 do 
-    count=$(echo ${"$key->${array[$key]}"} | grep -Fo "," | wc -l)
-    if [ count -gt 1 ]
+    count=$(grep -o ',' <<< ${written[$key]} | wc -l)
+    count=$(((count + 1) / 2))
+    if [ $count -gt 1 ]
     then
-        echo "address ${varName} written to by ${$key->${written[$key]}}"
+        echo "address ${varName} written to by ${written[$key]}" >> threadOverwrite.txt
     fi
 done
 
@@ -68,3 +78,4 @@ done
 # copy back original contents
 cp tempCu $cuPath
 rm tempCu
+rm out.txt
