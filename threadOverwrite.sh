@@ -7,14 +7,14 @@
 # -c = path to .cu file
 # ./threadOutput.sh -m "/afs/andrew.cmu.edu/usr16/kflorend/private/15418/project/15418-asst2/scan" -r "/afs/andrew.cmu.edu/usr16/kflorend/private/15418/project/15418-asst2/scan/cudaScan -m scan -i random -n 100" -c "/afs/andrew.cmu.edu/usr16/kflorend/private/15418/project/15418-asst2/scan/scan.cu"
 
-while getopts m:r:c:v:e: flag
+while getopts m:r:c:v:l: flag
 do
     case "${flag}" in
         m) makeDir=${OPTARG};;
         r) runCmd=${OPTARG};;
         c) cuPath=${OPTARG};;
         v) varName=${OPTARG};;
-        e) endLine=${OPTARG};;
+        l) lineNum=${OPTARG};;
     esac
 done
 echo "Make dir: $makeDir";
