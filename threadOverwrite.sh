@@ -64,7 +64,7 @@ do
     count=$(((count + 1) / 2))
     if [ $count -gt 1 ]
     then
-        echo "address ${varName} written to by ${written[$key]}" >> threadOverwrite.txt
+        echo "address ${key} written to by ${written[$key]}" >> threadOverwrite.txt
     fi
 done
 
