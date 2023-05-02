@@ -82,20 +82,44 @@ echo $gridDimXSet
 echo $gridDimYSet
 echo $gridDimZSet
 
-blockDimX=2048
+rm optimizeConfig.txt
+touch optimizeConfig.txt
+
 IFS=' '
 for configVal in "${configVals[@]}"
 do
 	echo "config val: "
 	echo $configVal
 	read -a config <<< "${configVal}"
-	for c in "${config[@]}"
+	if [ "$blockDimXSet" = true ] ; then
+                sed -i -E "s/#define +${blockDimXVar}.*/#define ${blockDimXVar} ${config[0]}/" $cuPath
+	fi
+	if [ "$blockDimYSet" = true ] ; then
+                sed -i -E "s/#define +${blockDimYVar}.*/#define ${blockDimYVar} ${config[1]}/" $cuPath
+	fi
+	if [ "$blockDimZSet" = true ] ; then
+                sed -i -E "s/#define +${blockDimZVar}.*/#define ${blockDimZVar} ${config[2]}/" $cuPath
+	fi
+	if [ "$gridDimXSet" = true ] ; then
+                sed -i -E "s/#define +${gridDimXVar}.*/#define ${gridDimXVar} ${config[3]}/" $cuPath
+	fi
+	if [ "$gridDimYSet" = true ] ; then
+                sed -i -E "s/#define +${gridDimYVar}.*/#define ${gridDimYVar} ${config[4]}/" $cuPath
+	fi
+	if [ "$gridDimZSet" = true ] ; then
+                sed -i -E "s/#define +${gridDimZVar}.*/#define ${gridDimZVar} ${config[5]}/" $cuPath
+	fi
+	
+	(cd $makeDir && make)
+	for i in {1..3}
 	do
-		echo "c: "
-		echo $c
+		start_time=$(date +%s.%6N)
+		$runCmd
+		end_time=$(date +%s.%6N)
+		elapsed=$(echo "scale=6; $end_time - $start_time" | bc)
+		echo "${configVal} ${elapsed}" >> optimizeConfig.txt
 	done
 done
-sed -i -E "s/#define +${blockDimInput[0]}.*/#define ${blockDimInput[0]} ${blockDimX}/" $cuPath
 
 # copy back original contents
 cp tempCu $cuPath
