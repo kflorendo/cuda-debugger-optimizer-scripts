@@ -38,7 +38,7 @@ case $varType in
     "float") varFormat="%f";;
     "string") varFormat="%s";;
 esac
-insertText="printf(\"${prefix} %d %d ${varFormat}\\\\n\", blockIdx.x, threadIdx.x, ${var});"
+insertText="printf(\"${prefix} %d %d %d %d %d %d ${varFormat}\\\\n\", blockIdx.x, blockIdx.y, blockIdx.z, threadIdx.x, threadIdx.y, threadIdx.z, ${var});"
 echo $insertText
 sed -i "${insertLine} i ${insertText}" $cuPath
 
