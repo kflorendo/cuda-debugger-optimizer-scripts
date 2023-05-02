@@ -43,7 +43,7 @@ echo $insertText
 sed -i "${insertLine} i ${insertText}" $cuPath
 
 (cd $makeDir && make)
-$runCmd > threadOutput.txt
+$runCmd > output/threadOutput.txt
 
 # filter output file
 sed -i "/^${prefix}/!d" threadOutput.txt
