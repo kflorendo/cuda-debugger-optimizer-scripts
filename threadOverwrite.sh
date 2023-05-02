@@ -34,8 +34,9 @@ prefix="cuda-debug-optimize$(date +%s)"
 insertLine=1
 # add print statements into file
 # sed -i "${insertLine} i printf(\"blockIdx threadIdx address\");" $cuPath
-sed -i "${lineNum} i printf(\"${prefix} %d %d %u\\\\n\", blockIdx.x, threadIdx.x, &${varName});" $cuPath
+sed -i "${lineNum} i printf(\"${prefix} %d %d %d %d %d %d ${varFormat}\\\\n\", blockIdx.x, blockIdx.y, blockIdx.z, threadIdx.x, threadIdx.y, threadIdx.z, &${varName});" $cuPath
 # address column needed when var input is array (include index, multiple addresses)
+
 
 (cd $makeDir && make)
 # write to file
