@@ -9,8 +9,8 @@ __global__ void checkOverwrite(int* val, int length)
 
     if (idx < length)
     {
-        int value = val[0];
-        val[0] = idx;
+        int value = (*int)val;
+        (*int)val = idx;
 
         // confirm with threadOverwrite
         // if (value != idx) {
@@ -26,7 +26,7 @@ int main()
     int* device_data;
 
     cudaMalloc((void **)&device_data, sizeof(int));
-    int check;
+    int check = 0;
 
     // cudaMemcpy(device_data, check, length * sizeof(int), cudaMemcpyHostToDevice);
 
