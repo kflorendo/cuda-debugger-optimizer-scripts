@@ -37,6 +37,8 @@ An example of running the script is
     -c "/afs/andrew.cmu.edu/usr16/kflorend/private/15418/project/15418-asst2/scan/scan.cu" \
     -v "device_data[i+twod1-1]" \
     -l 63
+    -t "int" \
+    -a "y"
 ```
 
 ### Script Arguments
@@ -46,3 +48,5 @@ An example of running the script is
 * The `-c` flag specifies the path to the .cu file to debug.
 * The `-v` flag specifies the variable or expression to get the check overwriting for.
 * The `-l` flag specifies the line number to check overwriting of the variable/expression at.
+* The `-t` flag specifies the type of the variable/expression (int, string, and float are supported).
+* The `-a` flag specifies if the value is part of an array or not (and whether we should record the array index in the output).
