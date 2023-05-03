@@ -3,14 +3,14 @@
 #include <cuda_runtime.h>
 #include <driver_functions.h>
 
-__global__ void checkOverwrite(int val, int length)
+__global__ void checkOverwrite(int* val, int length)
 {
     int idx = threadIdx.x + blockIdx.x * blockDim.x;
 
     if (idx < length)
     {
-        int value = val;
-        val = idx;
+        int value = val[0];
+        val[0] = idx;
 
         // confirm with threadOverwrite
         // if (value != idx) {
@@ -26,7 +26,7 @@ int main()
     int* device_data;
 
     cudaMalloc((void **)&device_data, sizeof(int));
-    int result;
+    int check;
 
     // cudaMemcpy(device_data, check, length * sizeof(int), cudaMemcpyHostToDevice);
 
