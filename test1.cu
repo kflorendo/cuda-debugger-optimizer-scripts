@@ -9,9 +9,8 @@ __global__ void checkOverwrite(int *darr, int length)
 
     if (idx < length)
     {
-        int value = darr[idx];
-        darr[idx] = idx;
-        
+        int value = darr[idx % 8];
+        darr[idx % 8] = idx;
 
         // confirm with threadOverwrite
         // if (value != idx) {

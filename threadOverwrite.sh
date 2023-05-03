@@ -1,4 +1,14 @@
-#!/bin/bash -x
+#!/bin/bash
+
+# test case running example:
+# ./threadOverwrite.sh \
+#     -m "/afs/andrew.cmu.edu/usr19/huiningl/private/15418-asst2/cuda-debugger-optimizer-scripts" \
+#     -r "/afs/andrew.cmu.edu/usr19/huiningl/private/15418-asst2/cuda-debugger-optimizer-scripts/test1" \
+#     -c "/afs/andrew.cmu.edu/usr19/huiningl/private/15418-asst2/cuda-debugger-optimizer-scripts/test1.cu" \
+#     -v "darr[idx]" \
+#     -l 14 \
+#     -t "int" \
+#     -a y
 
 # example of running this script:
 # ALL COMMAND LINE ARGUMENTS ARE ABSOLUTE PATHS
