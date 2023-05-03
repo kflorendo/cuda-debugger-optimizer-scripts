@@ -9,8 +9,8 @@ __global__ void checkOverwrite(int* val, int length)
 
     if (idx < length)
     {
-        int value = (*int)val;
-        (*int)val = idx;
+        int value = *val;
+        *val = idx;
 
         // confirm with threadOverwrite
         // if (value != idx) {
