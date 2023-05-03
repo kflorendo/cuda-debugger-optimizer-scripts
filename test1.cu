@@ -9,24 +9,11 @@ __global__ void checkOverwrite(int *darr, int length)
 
     if (idx < length)
     {
-        printf("initial values: ");
-        for (int i = 0; i < length; i++){
-            
-            printf( "%d \n", check[i]);
-        }
-
-
         int value = darr[idx];
         darr[idx] = idx;
 
-        printf("pre-return values: ");
-        for (int i = 0; i < length; i++){
-            
-            printf( "%d \n", check[i]);
-        }
-
         if (value != idx) {
-            printf("Thread %d overwrote the value at index %d\n", idx, idx);
+            printf("Thread %d overwrote the value with %d\n", idx, darr[idx]);
         }
     }
 }
