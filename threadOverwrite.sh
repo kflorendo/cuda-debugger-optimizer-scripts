@@ -55,9 +55,11 @@ case $varType in
 esac
 
 case $arrayOpt in
-    "n") index = (-1);;
-    "y") index=${varName#*'['} #remove everything before [
+    "y") 
+        index=${varName#*'['} #remove everything before [
         index=${index%']'*};;   #remove everything after ]
+    "n") 
+        index=-1;;
 esac
 
 sed -i "${lineNum} i printf(\"${prefix} %d %d %d %d %d %d %p ${varFormat} %d\\\\n\", blockIdx.x, blockIdx.y, blockIdx.z, threadIdx.x, threadIdx.y, threadIdx.z, &${temp}, ${temp}, ${index});" $cuPath
