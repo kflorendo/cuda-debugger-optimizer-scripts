@@ -19,4 +19,4 @@ plt.pie(time, labels=name, autopct='%1.1f%%')
 
 plt.title('Function Execution Times')
 
-plt.show()
+plt.savefig("gprofTime", dpi='figure', format=None)
