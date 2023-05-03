@@ -92,6 +92,6 @@ done
 # output file is 3 columns  (blockidx, threadidx, address value)
 
 # copy back original contents
-# cp tempCu $cuPath
+cp tempCu $cuPath
 rm tempCu
-rm out.txt
+# rm out.txt
