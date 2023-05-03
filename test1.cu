@@ -11,10 +11,12 @@ __global__ void checkOverwrite(int *darr, int length)
     {
         int value = darr[idx];
         darr[idx] = idx;
+        
 
-        if (value != idx) {
-            printf("Thread %d overwrote the value with %d\n", idx, darr[idx]);
-        }
+        // confirm with threadOverwrite
+        // if (value != idx) {
+        //     printf("Thread %d overwrote the value with %d\n", idx, darr[idx]);
+        // }
     }
 }
 
@@ -39,9 +41,9 @@ int main()
 
     cudaMemcpy(check, device_data, length * sizeof(int), cudaMemcpyDeviceToHost);
 
-    for (int i = 0; i < length; i++){
-        printf( "%d \n", check[i]);
-    }
+    // for (int i = 0; i < length; i++){
+    //     printf( "%d \n", check[i]);
+    // }
 
     // free memory
     cudaFree(device_data);
