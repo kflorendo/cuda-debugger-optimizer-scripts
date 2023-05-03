@@ -10,7 +10,7 @@ __global__ void checkOverwrite(int *darr, int length)
     if (idx < length)
     {
         int value = darr[0];
-        darr[0] = idx;
+        darr[0] = 3;
 
         // confirm with threadOverwrite
         // if (value != idx) {
