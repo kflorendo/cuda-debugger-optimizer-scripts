@@ -1,27 +1,23 @@
 #!/bin/bash
 
-while getopts r:c: flag
+while getopts m:r:c: flag
 do
     case "${flag}" in
+        m) makeDir=${OPTARG};;
         r) runCmd=${OPTARG};;
         c) cuPath=${OPTARG};;
     esac
 done
+echo "Make dir: $makeDir";
 echo "Run command: $runCmd";
 echo "Path to .cu file: $cuPath"; 
 
-# Compile CUDA code
-nvcc -pg -o exe_prog $cuPath
+(cd $makeDir && make)
 
-# Run code
+# Run code, creates gmon
 $runCmd
 
-# gprof call
-gprof exe_prog gmon.out > results.out
+#gprof call
+gprof exe_prog gmon.out > results.txt
 
-# display results
-gprof2dot -f pstats results.out | dot -Tsvg -o results.svg
-
-# pie chart?
-xdg-open results.svg
 
