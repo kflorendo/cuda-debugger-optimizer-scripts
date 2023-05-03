@@ -28,10 +28,10 @@ int main()
     cudaMalloc((void **)&device_data, sizeof(int) * length);
     int check[16];
 
-    for (int i = 0; i < length; i++)
-    {
-        check[i] = i;
-    }
+//     for (int i = 0; i < length; i++)
+//     {
+//         check[i] = i;
+//     }
 
     // cudaMemcpy(device_data, check, length * sizeof(int), cudaMemcpyHostToDevice);
 
