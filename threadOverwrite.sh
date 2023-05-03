@@ -35,7 +35,7 @@ cat $cuPath > tempCu
 prefix="cuda-debug-optimize$(date +%s)"
 
 # add a print statement
-insertLine=1
+# insertLine=1
 # add print statements into file
 # sed -i "${insertLine} i printf(\"blockIdx threadIdx address\");" $cuPath
 case $varType in
@@ -67,7 +67,7 @@ declare -A written
 while IFS= read -r line; do
     data="$line"
     stringarray=($data)
-    written[${stringarray[6]}]="${written[${stringarray[6]}]}${written[${stringarray[6]}]:+,}(${stringarray[0]}, ${stringarray[1]}, ${stringarray[2]}, ${stringarray[3]}, ${stringarray[4]}, ${stringarray[5]}, ${stringarray[7]})"
+    written[${stringarray[6]}]="${written[${stringarray[6]}]}${written[${stringarray[6]}]:+,}((${stringarray[8]}), ${stringarray[0]}, ${stringarray[1]}, ${stringarray[2]}, ${stringarray[3]}, ${stringarray[4]}, ${stringarray[5]}, [${stringarray[7]}])"
 done < out.txt
 
 #source: https://stackoverflow.com/questions/27832452/associate-multiple-values-for-one-key-in-array-in-bash
