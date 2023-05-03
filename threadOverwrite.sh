@@ -49,7 +49,7 @@ case $arrayOpt in
         index=${index%']'*};;   #remove everything after ]
 esac
 
-sed -i "${lineNum} i printf(\"${prefix} %d %d %d %d %d %d %u ${varFormat}\\\\n\", blockIdx.x, blockIdx.y, blockIdx.z, threadIdx.x, threadIdx.y, threadIdx.z, &${varName}, ${varName}, ${!index});" $cuPath
+sed -i "${lineNum} i printf(\"${prefix} %d %d %d %d %d %d %u ${varFormat}\\\\n\", blockIdx.x, blockIdx.y, blockIdx.z, threadIdx.x, threadIdx.y, threadIdx.z, &${varName}, ${varName}, $(eval echo "$(($index))"));" $cuPath
 # address column needed when var input is array (include index, multiple addresses)
 
 
