@@ -25,19 +25,19 @@ all: $(EXECUTABLE)
 default: $(EXECUTABLE)
 
 dirs:
-        mkdir -p $(OBJDIR)/
+	mkdir -p $(OBJDIR)/
 
 clean:
-        rm -rf $(OBJDIR) *.ppm *~ $(EXECUTABLE)
+	rm -rf $(OBJDIR) *.ppm *~ $(EXECUTABLE)
 
 check_scan: default
-                ./checker.pl scan
+				./checker.pl scan
 
 check_find_repeats: default
-                ./checker.pl find_repeats
+				./checker.pl find_repeats
 
 $(EXECUTABLE): dirs $(OBJS)
-        $(CXX) $(CXXFLAGS) -o $@ $(OBJS) $(LDFLAGS)
+		$(CXX) $(CXXFLAGS) -o $@ $(OBJS) $(LDFLAGS)
 
 
 
@@ -45,5 +45,5 @@ $(OBJDIR)/%.o: %.cpp
 	$(CXX) $< $(CXXFLAGS) -c -o $@
 
 $(OBJDIR)/%.o: %.cu
-        $(NVCC) $< $(NVCCFLAGS) -c -o $@
+		(NVCC) $< $(NVCCFLAGS) -c -o $@
 
