@@ -33,7 +33,7 @@ int main()
     int numBlocks = (length + threadsPerBlock - 1) / threadsPerBlock;
     checkOverwrite<<<numBlocks, threadsPerBlock>>>(device_data, length);
 
-    cudaMemcpy(check, device_data, sizeof(int), cudaMemcpyDeviceToHost);
+    cudaMemcpy(&check, device_data, sizeof(int), cudaMemcpyDeviceToHost);
 
     // for (int i = 0; i < length; i++){
     //     printf( "%d \n", check[i]);
