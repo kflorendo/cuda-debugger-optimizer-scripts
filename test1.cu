@@ -22,7 +22,7 @@ int main()
     int* device_data;
 
     cudaMalloc((void **)&device_data, sizeof(int) * length);
-    int check[16] = (int*) malloc(length * sizeof(int));
+    int check[16];
 
     for (int i = 0; i < length; i++)
     {
@@ -38,7 +38,6 @@ int main()
 
     // free memory
     cudaFree(device_data);
-    free(check);
 
     return 0;
 }
