@@ -82,8 +82,8 @@ echo $gridDimXSet
 echo $gridDimYSet
 echo $gridDimZSet
 
-rm optimizeConfig.txt
-touch optimizeConfig.txt
+rm output/optimizeConfig.txt
+touch output/optimizeConfig.txt
 
 IFS=' '
 for configVal in "${configVals[@]}"
@@ -117,7 +117,7 @@ do
 		$runCmd
 		end_time=$(date +%s.%6N)
 		elapsed=$(echo "scale=6; $end_time - $start_time" | bc)
-		echo "${configVal} ${elapsed}" >> optimizeConfig.txt
+		echo "${configVal} ${elapsed}" >> output/optimizeConfig.txt
 	done
 done
 
