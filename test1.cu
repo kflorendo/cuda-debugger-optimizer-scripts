@@ -12,6 +12,9 @@ __global__ void checkOverwrite(int *darr, int length)
         int value = darr[idx];
         darr[idx] = idx;
 
+        if (value != idx) {
+            printf("Thread %d overwrote the value at index %d\n", idx, idx);
+        }
     }
 }
 
