@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 # example of running this script:
 # ALL COMMAND LINE ARGUMENTS ARE ABSOLUTE PATHS
