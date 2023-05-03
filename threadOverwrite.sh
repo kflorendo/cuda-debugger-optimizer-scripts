@@ -35,7 +35,7 @@ cat $cuPath > tempCu
 prefix="cuda-debug-optimize$(date +%s)"
 
 # add a print statement
-# insertLine=1
+temp=${varName}
 # add print statements into file
 # sed -i "${insertLine} i printf(\"blockIdx threadIdx address\");" $cuPath
 case $varType in
@@ -49,7 +49,7 @@ case $arrayOpt in
         index=${index%']'*};;   #remove everything after ]
 esac
 
-sed -i "${lineNum} i printf(\"${prefix} %d %d %d %d %d %d %u ${varFormat} %d\\\\n\", blockIdx.x, blockIdx.y, blockIdx.z, threadIdx.x, threadIdx.y, threadIdx.z, &${varName}, ${varName}, ${index});" $cuPath
+sed -i "${lineNum} i printf(\"${prefix} %d %d %d %d %d %d %u ${varFormat} %d\\\\n\", blockIdx.x, blockIdx.y, blockIdx.z, threadIdx.x, threadIdx.y, threadIdx.z, &${temp}, ${temp}, ${index});" $cuPath
 # address column needed when var input is array (include index, multiple addresses)
 
 
@@ -92,6 +92,6 @@ done
 # output file is 3 columns  (blockidx, threadidx, address value)
 
 # copy back original contents
-cp tempCu $cuPath
+# cp tempCu $cuPath
 rm tempCu
 # rm out.txt
