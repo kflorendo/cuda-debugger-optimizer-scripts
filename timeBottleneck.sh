@@ -20,4 +20,4 @@ $runCmd
 #gprof call
 gprof exe_prog gmon.out > results.txt
 
-
+python3 gprofTime.py
