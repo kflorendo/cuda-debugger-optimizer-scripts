@@ -57,15 +57,15 @@ done < out.txt
 
 #source: https://stackoverflow.com/questions/27832452/associate-multiple-values-for-one-key-in-array-in-bash
 
-touch output/threadOverwrite.txt
-> output/threadOverwrite.txt
+touch threadOverwrite.txt
+> threadOverwrite.txt
 for key in "${!written[@]}"
 do 
     count=$(grep -o ',' <<< ${written[$key]} | wc -l)
     count=$(((count + 1) / 2))
     if [ $count -gt 1 ]
     then
-        echo "address ${key} written to by ${written[$key]}" >> output/threadOverwrite.txt
+        echo "address ${key} written to by ${written[$key]}" >> threadOverwrite.txt
     fi
 done
 
