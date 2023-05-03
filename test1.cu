@@ -7,7 +7,7 @@ __global__ void checkOverwrite(int *darr, int length)
 {
     int idx = threadIdx.x + blockIdx.x * blockDim.x;
 
-    if (idx < size)
+    if (idx < length)
     {
         int value = darr[idx];
         darr[idx] = idx;
@@ -22,7 +22,7 @@ int main()
     int* device_data;
 
     cudaMalloc((void **)&device_data, sizeof(int) * length);
-    check = (int*) malloc(length * sizeof(int));
+    int check[16] = (int*) malloc(length * sizeof(int));
 
     for (int i = 0; i < length; i++)
     {
