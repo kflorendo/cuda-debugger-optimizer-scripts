@@ -89,7 +89,7 @@ touch threadOverwrite.txt
 > threadOverwrite.txt
 for key in "${!written[@]}"
 do 
-    count=$(grep -o ',' <<< ${written[$key]} | wc -l)
+    count=$(grep -o ' ' <<< ${written[$key]} | wc -l)
     count=$(((count + 1) / 2))
     if [ $count -gt 1 ]
     then
