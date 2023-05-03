@@ -14,7 +14,8 @@ for line in lines:
         lineArr = line.split(',')
         start = float(lineArr[0]) * 1000 # convert milli to microseconds
         duration = float(lineArr[1])
-        name = lineArr[18]
+        nameArr = lineArr[18:-1]
+        name = ','.join(nameArr)
         data.append((start, duration, name))
         catSet.add(name)
     num += 1
@@ -34,7 +35,7 @@ for cat in catSet:
 verts = []
 colors = []
 for d in data:
-    print((d[0], d[1], d[2]))
+    # print((d[0], d[1], d[2]))
     v =  [(d[0], cats[d[2]]-.4),
           (d[0], cats[d[2]]+.4),
           (d[0] + d[1], cats[d[2]]+.4),
