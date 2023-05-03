@@ -55,6 +55,7 @@ case $varType in
 esac
 
 case $arrayOpt in
+    "n") index = (-1);;
     "y") index=${varName#*'['} #remove everything before [
         index=${index%']'*};;   #remove everything after ]
 esac
