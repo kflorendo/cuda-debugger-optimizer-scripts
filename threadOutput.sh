@@ -46,11 +46,11 @@ sed -i "${insertLine} i ${insertText}" $cuPath
 $runCmd > output/threadOutput.txt
 
 # filter output file
-sed -i "/^${prefix}/!d" threadOutput.txt
-sed -i "s/${prefix} //" threadOutput.txt
+sed -i "/^${prefix}/!d" output/threadOutput.txt
+sed -i "s/${prefix} //" output/threadOutput.txt
 
 # add file heading
-sed -i "1s/^/threadIdx.x blockIdx.x ${var}\n/" threadOutput.txt
+sed -i "1s/^/threadIdx.x blockIdx.x ${var}\n/" output/threadOutput.txt
 
 # copy back original contents
 cp tempCu $cuPath
