@@ -28,16 +28,22 @@ data = []
 for line in lines:
     if num >= 5:
         lineArr = line.split(',')
-        start = float(lineArr[0])
-        duration = float(lineArr[1])
-        name = ''
-        if trace == "gpu":
-            nameArr = lineArr[18:-1]
-            name = ','.join(nameArr)
-        else:
-            name = lineArr[2]
-        data.append((start, duration, name))
-        catSet.add(name)
+        isfloat = True
+        try:
+            float(lineArr[0])
+        except:
+            isfloat = False
+        if(isfloat):
+            start = float(lineArr[0])
+            duration = float(lineArr[1])
+            name = ''
+            if trace == "gpu":
+                nameArr = lineArr[18:-1]
+                name = ','.join(nameArr)
+            else:
+                name = lineArr[2]
+            data.append((start, duration, name))
+            catSet.add(name)
     num += 1
 
 catnum = 1
