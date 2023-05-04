@@ -30,6 +30,9 @@ An example of running the script is
 
 ## Thread Overwriting
 
+The script `threadOverwrite.sh` outputs a list of addresses and the threads that have written to each of those addresses.
+
+An example of running the script is
 ```
 ./threadOverwrite.sh \
     -m "/afs/andrew.cmu.edu/usr16/kflorend/private/15418/project/15418-asst2/scan" \
@@ -53,6 +56,9 @@ An example of running the script is
 
 ## Time Bottleneck (GProf)
 
+The script `timeBottleneck.sh` outputs a pie chart representing percentages of the total runtime each individual function execution takes up.
+
+An example of running the script is
 ```
 ./timeBottleneck.sh \
     -m "/afs/andrew.cmu.edu/usr16/kflorend/private/15418/project/15418-asst2/scan" \
@@ -67,8 +73,11 @@ An example of running the script is
 * The `-c` flag specifies the path to the .cu file to run.
 * Note: -pg flag must be added to execution command (ex. Makefile)
 
-## Time Bottleneck (CPU/API trace)
+## Time Bottleneck (GPU/API trace)
 
+The script `timeBottleneckTrace.sh` outputs a timeline graph that displays the duration where a GPU activity/CUDA API function is executing.
+
+An example of running the script is
 ```
 ./timeBottleneckTrace.sh \
     -r "/afs/andrew.cmu.edu/usr16/kflorend/private/15418/project/15418-asst2/scan/cudaScan -m scan -i random -n 100" 
@@ -80,6 +89,9 @@ An example of running the script is
 
 ## Memory Bottleneck (nvprof)
 
+The script `memoryBottleneck.sh` outputs a series of graphs that visualizes the correlation between time and another variable (ex. throughput) for all GPU activity functions.
+
+An example of running the script is
 ```
 ./memoryBottleneck.sh \
     -r "/afs/andrew.cmu.edu/usr16/kflorend/private/15418/project/15418-asst2/scan/cudaScan -m scan -i random -n 100" 
@@ -91,6 +103,9 @@ An example of running the script is
 
 ## Optimize Config
 
+The script `optimizeConfig.sh` outputs a list of macro configurations as well as the corresponding runtime in seconds.
+
+An example of running the script is
 ```
 ./optimizeConfig.sh \
     -m "/afs/andrew.cmu.edu/usr16/kflorend/private/15418/project/15418-asst2/scan" \
@@ -112,6 +127,9 @@ An example of running the script is
 
 ## Param Graph Generation
 
+The script `generateGraph.sh` outputs a series of graphs that demonstrates the correlations between altering a macro parameter and program runtime.
+
+An example of running the script is
 ```
 ./generateGraph.sh \
     -f "/afs/andrew.cmu.edu/usr16/kflorend/private/15418/project/15418-asst2/output/optimizeConfig.txt"
@@ -123,6 +141,9 @@ An example of running the script is
 
 ## Thread Breakpoint
 
+The script `breakpoint.sh` outputs a list of 'blockIdx' and 'threadIdx' values, which represent individual threads that reached the user-inputted line number in the program.
+
+An example of running the script is
 ```
 ./breakpoint.sh \
     -m "/afs/andrew.cmu.edu/usr16/kflorend/private/15418/project/15418-asst2/scan" \
@@ -140,6 +161,9 @@ An example of running the script is
 
 ## Speedup Calculation
 
+The script `speedup.sh` claculates the speedup between the runtimes of a sequential and a parallel program.
+
+An example of running the script is
 ```
 ./speedup.sh \
     -s "/afs/andrew.cmu.edu/usr16/kflorend/private/15418/project/15418-asst2/test/threadOverwriteTest1/sequential1" \
