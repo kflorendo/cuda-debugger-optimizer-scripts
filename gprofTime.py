@@ -12,8 +12,15 @@ for line in open('output/results.txt', 'r'):
             break
         cleanline = line.strip()
         arr = line.split()
-        time.append(arr[0])
-        name.append(line[index:].strip())
+        isint = true
+        for var in arr:
+          try:
+              int(var)
+          except ValueError:
+              isint = False
+        if(isint):
+            time.append(arr[0])
+            name.append(line[index:].strip())
     linenum += 1
 
 length = len(time)
