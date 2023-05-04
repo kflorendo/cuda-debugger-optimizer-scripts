@@ -21,4 +21,6 @@ execute=${runCmd%% *}
 #gprof call
 gprof ${execute} gmon.out > output/results.txt
 
+rm gmon.out
+
 # python3 gprofTime.py
