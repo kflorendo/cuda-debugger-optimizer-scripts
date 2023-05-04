@@ -58,7 +58,7 @@ plt.title('staticMem vs Time')
 plt.ylabel('staticMem')
 plt.xlabel('Time(s)')
 leg = plt.legend(loc='lower center')
-plt.savefig("timestat", dpi='figure', format=None)
+plt.savefig("output/timestat", dpi='figure', format=None)
 plt.clf()
 
 
@@ -88,7 +88,7 @@ plt.title('dynamicMem vs Time')
 plt.ylabel('dynamicMem')
 plt.xlabel('Time(s)')
 leg = plt.legend(loc='lower center')
-plt.savefig("timedynam", dpi='figure', format=None)
+plt.savefig("output/timedynam", dpi='figure', format=None)
 plt.clf()
 
 
@@ -118,7 +118,7 @@ plt.title('size vs Time')
 plt.ylabel('size')
 plt.xlabel('Time(s)')
 leg = plt.legend(loc='lower center')
-plt.savefig("timesize", dpi='figure', format=None)
+plt.savefig("output/timesize", dpi='figure', format=None)
 plt.clf()
 
 
@@ -148,5 +148,5 @@ plt.title('throughput vs Time')
 plt.ylabel('throughput')
 plt.xlabel('Time(s)')
 leg = plt.legend(loc='lower center')
-plt.savefig("timethru", dpi='figure', format=None)
+plt.savefig("output/timethru", dpi='figure', format=None)
 plt.clf()
