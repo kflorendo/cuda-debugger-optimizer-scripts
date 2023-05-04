@@ -7,6 +7,12 @@ do
     esac
 done
 
+rm -f timestat.png
+rm -f timedynam.png
+rm -f timesize.png
+rm -f timethru.png
+
+
 nvprof --print-gpu-trace --csv --log-file output/memoryBottleneckGpuTrace.txt --normalized-time-unit us $runCmd
 
 # python3 memoryBottleneck.py
