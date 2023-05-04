@@ -7,10 +7,10 @@ do
     esac
 done
 
-rm -f timestat.png
-rm -f timedynam.png
-rm -f timesize.png
-rm -f timethru.png
+rm -f output/timestat.png
+rm -f output/timedynam.png
+rm -f output/timesize.png
+rm -f output/timethru.png
 
 
 nvprof --print-gpu-trace --csv --log-file output/memoryBottleneckGpuTrace.txt --normalized-time-unit us $runCmd
