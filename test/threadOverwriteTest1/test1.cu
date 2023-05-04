@@ -3,6 +3,8 @@
 #include <cuda_runtime.h>
 #include <driver_functions.h>
 
+#define THREADS_PER_BLOCK 4
+
 __global__ void checkOverwrite(int *darr, int length)
 {
     int idx = threadIdx.x + blockIdx.x * blockDim.x;
@@ -22,7 +24,7 @@ __global__ void checkOverwrite(int *darr, int length)
 int main()
 {
     int length = 16;
-    int threadsPerBlock = 4;
+    int threadsPerBlock = THREADS_PER_BLOCK;
     int* device_data;
 
     cudaMalloc((void **)&device_data, sizeof(int) * length);
