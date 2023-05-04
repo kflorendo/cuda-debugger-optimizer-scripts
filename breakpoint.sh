@@ -29,10 +29,10 @@ sed -i "${lineNum} i printf(\"${prefix} %d %d %d %d %d %d\\\\n\", blockIdx.x, bl
 
 (cd $makeDir && make)
 # write to file
-$runCmd > threadbp.txt
+$runCmd > output/threadbp.txt
 
 # filter output file
-sed -i "/^${prefix}/!d" threadbp.txt
-sed -i "s/${prefix} //" threadbp.txt
+sed -i "/^${prefix}/!d" output/threadbp.txt
+sed -i "s/${prefix} //" output/threadbp.txt
 
 python3 sortThreads.py
