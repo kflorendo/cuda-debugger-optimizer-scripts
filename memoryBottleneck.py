@@ -14,15 +14,21 @@ linenum = 0
 
 for line in lines:
     if linenum >= 5:
-        cleanline = line.strip()
-        lineArr = cleanline.split(',')
-        time.append(lineArr[0])
-        staticMem.append(lineArr[9])
-        dynamicMem.append(lineArr[10])
-        size.append(lineArr[11])
-        throughput.append(lineArr[12])
-        nameArr = lineArr[18:-1]
-        name.append(','.join(nameArr))
+        isfloat = True
+        try:
+            float(lineArr[0])
+        except:
+            isfloat = False
+        if(isfloat):
+            cleanline = line.strip()
+            lineArr = cleanline.split(',')
+            time.append(lineArr[0])
+            staticMem.append(lineArr[9])
+            dynamicMem.append(lineArr[10])
+            size.append(lineArr[11])
+            throughput.append(lineArr[12])
+            nameArr = lineArr[18:-1]
+            name.append(','.join(nameArr))
     linenum += 1
 
 
