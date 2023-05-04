@@ -51,6 +51,6 @@ for each in timestatX:
 plt.title('staticMem vs Time')
 plt.ylabel('staticMem')
 plt.xlabel('Time(s)')
-leg = plt.legend(loc='bottom center')
+leg = plt.legend(loc='lower center')
 plt.savefig("timestat", dpi='figure', format=None)
 plt.clf()
