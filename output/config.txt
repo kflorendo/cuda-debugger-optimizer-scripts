@@ -1,2 +1,3 @@
-
-
+make
+run
+/Users/kflorendo/Documents/School/15418/cuda-debugger-optimizer/src/gui.cpp
