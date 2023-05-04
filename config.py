@@ -12,7 +12,8 @@ fileName = sys.argv[1]
 
 for line in open(fileName, 'r'):
     cleanline = line.strip()
-    arr = cleanline.split()
+    strarr = cleanline.split()
+    arr = [float(v) for v in strarr]
 
     if arr[0] in gridX:
         gridX[arr[0]].append(arr[6])
@@ -64,49 +65,60 @@ for key in blockZ:
     blockZ[key] = sum(blockZ[key])/len(blockZ[key])
 
 
-lists = sorted(gridX.items())
-x, y = zip(*lists)
+lists1 = sorted(gridX.items())
+x1, y1 = zip(*lists1)
 
-plt.plot(x, y, color = 'r')
+plt.plot(x1, y1, color = 'r')
 plt.title('gridX vs Time')
 plt.savefig("gridX", dpi='figure', format=None)
 plt.clf()
 
-lists = sorted(gridY.items())
-x, y = zip(*lists)
+lists2 = sorted(gridY.items())
+x2, y2 = zip(*lists2)
 
-plt.plot(x, y, color = 'c')
+plt.plot(x2, y2, color = 'c')
 plt.title('gridY vs Time')
 plt.savefig("gridY", dpi='figure', format=None)
 plt.clf()
 
-lists = sorted(gridZ.items())
-x, y = zip(*lists)
+lists3 = sorted(gridZ.items())
+x3, y3 = zip(*lists3)
 
-plt.plot(x, y, color = 'm')
+plt.plot(x3, y3, color = 'm')
 plt.title('gridZ vs Time')
 plt.savefig("gridZ", dpi='figure', format=None)
 plt.clf()
 
-lists = sorted(blockX.items())
-x, y = zip(*lists)
+lists4 = sorted(blockX.items())
+x4, y4 = zip(*lists4)
 
-plt.plot(x, y, color = 'y')
+plt.plot(x4, y4, color = 'y')
 plt.title('blockX vs Time')
 plt.savefig("blockX", dpi='figure', format=None)
 plt.clf()
 
-lists = sorted(blockY.items())
-x, y = zip(*lists)
+lists5 = sorted(blockY.items())
+x5, y5 = zip(*lists5)
 
-plt.plot(x, y, color = 'g')
+plt.plot(x5, y5, color = 'g')
 plt.title('blockY vs Time')
 plt.savefig("blockY", dpi='figure', format=None)
 plt.clf()
 
-lists = sorted(blockZ.items())
-x, y = zip(*lists)
+lists6 = sorted(blockZ.items())
+x6, y6 = zip(*lists6)
 
-plt.plot(x, y, color = 'b')
+plt.plot(x6, y6, color = 'b')
 plt.title('blockZ vs Time')
 plt.savefig("blockZ", dpi='figure', format=None)
+plt.clf()
+
+
+plt.plot(x1, y1, color = 'r', label = gridX)
+plt.plot(x2, y2, color = 'c', label = gridY)
+plt.plot(x3, y3, color = 'm', label = gridZ)
+plt.plot(x4, y4, color = 'y', label = blockX)
+plt.plot(x5, y5, color = 'g', label = blockY)
+plt.plot(x6, y6, color = 'b', label = blockZ)
+plt.title('params vs Time')
+plt.savefig("all", dpi='figure', format=None)
