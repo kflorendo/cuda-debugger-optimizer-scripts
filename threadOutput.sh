@@ -49,9 +49,6 @@ $runCmd > output/threadOutput.txt
 sed -i "/^${prefix}/!d" output/threadOutput.txt
 sed -i "s/${prefix} //" output/threadOutput.txt
 
-# add file heading
-sed -i "1s/^/threadIdx.x blockIdx.x ${var}\n/" output/threadOutput.txt
-
 # copy back original contents
 cp tempCu $cuPath
 rm tempCu
