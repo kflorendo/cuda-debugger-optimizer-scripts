@@ -35,4 +35,4 @@ plt.pie(time, labels=res)
 
 plt.title('Function Execution Times')
 
-plt.savefig("gprofTime", dpi='figure', format=None)
+plt.savefig("output/gprofTime", dpi='figure', format=None)
