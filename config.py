@@ -70,6 +70,8 @@ x1, y1 = zip(*lists1)
 
 plt.plot(x1, y1, color = 'r')
 plt.title('gridX vs Time')
+plt.xlabel('gridX value')
+plt.ylabel('Time(s)')
 plt.savefig("gridX", dpi='figure', format=None)
 plt.clf()
 
@@ -78,6 +80,8 @@ x2, y2 = zip(*lists2)
 
 plt.plot(x2, y2, color = 'c')
 plt.title('gridY vs Time')
+plt.xlabel('gridY value')
+plt.ylabel('Time(s)')
 plt.savefig("gridY", dpi='figure', format=None)
 plt.clf()
 
@@ -86,6 +90,8 @@ x3, y3 = zip(*lists3)
 
 plt.plot(x3, y3, color = 'm')
 plt.title('gridZ vs Time')
+plt.xlabel('gridZ value')
+plt.ylabel('Time(s)')
 plt.savefig("gridZ", dpi='figure', format=None)
 plt.clf()
 
@@ -94,6 +100,8 @@ x4, y4 = zip(*lists4)
 
 plt.plot(x4, y4, color = 'y')
 plt.title('blockX vs Time')
+plt.xlabel('blockX value')
+plt.ylabel('Time(s)')
 plt.savefig("blockX", dpi='figure', format=None)
 plt.clf()
 
@@ -102,6 +110,8 @@ x5, y5 = zip(*lists5)
 
 plt.plot(x5, y5, color = 'g')
 plt.title('blockY vs Time')
+plt.xlabel('blockY value')
+plt.ylabel('Time(s)')
 plt.savefig("blockY", dpi='figure', format=None)
 plt.clf()
 
@@ -110,6 +120,8 @@ x6, y6 = zip(*lists6)
 
 plt.plot(x6, y6, color = 'b')
 plt.title('blockZ vs Time')
+plt.xlabel('blockZ value')
+plt.ylabel('Time(s)')
 plt.savefig("blockZ", dpi='figure', format=None)
 plt.clf()
 
@@ -121,5 +133,7 @@ plt.plot(x4, y4, color = 'y', label = "blockX")
 plt.plot(x5, y5, color = 'g', label = "blockY")
 plt.plot(x6, y6, color = 'b', label = "blockZ")
 plt.title('params vs Time')
+plt.xlabel('param values')
+plt.ylabel('Time(s)')
 leg = plt.legend(loc='upper right')
 plt.savefig("all", dpi='figure', format=None)
