@@ -2,7 +2,7 @@ import datetime as dt
 import matplotlib.pyplot as plt
 from matplotlib.collections import PolyCollection
 
-file1 = open('output/nvprof_memoryBottleneck.txt', 'r')
+file1 = open('output/timeBottleneckGpuTrace.txt', 'r')
 lines = file1.readlines()
 
 num = 0
@@ -54,4 +54,4 @@ ax.set_xlabel("Time (microseconds)")
 
 ax.set_yticks(yticks)
 ax.set_yticklabels(yticklabels)
-fig.savefig('output/memoryBottleneckTimeline.png',dpi=300, bbox_inches = "tight")
+fig.savefig('output/timeBottleneckGpuTimeline.png',dpi=300, bbox_inches = "tight")
