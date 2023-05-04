@@ -17,7 +17,7 @@ echo "Path to .cu file: $cuPath";
 # Run code, creates gmon
 $runCmd
 
-execute=${runCmd%' '*};;
+execute=${runCmd%% *}
 #gprof call
 gprof ${execute} gmon.out > results.txt
 
