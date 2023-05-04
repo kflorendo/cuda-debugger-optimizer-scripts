@@ -20,4 +20,4 @@ $paraRun
 end_time2=$(date +%s.%6N)
 elapsed2=$(echo "scale=6; ${end_time2} - ${start_time2}" | bc)
 
-bc -l <<< '${elapsed}/${elapsed2}'
+bc -l <<< "${elapsed}/${elapsed2}"
