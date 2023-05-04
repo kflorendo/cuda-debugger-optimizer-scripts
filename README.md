@@ -50,3 +50,35 @@ An example of running the script is
 * The `-l` flag specifies the line number to check overwriting of the variable/expression at.
 * The `-t` flag specifies the type of the variable/expression (int, string, and float are supported).
 * The `-a` flag specifies if the value is part of an array or not (and whether we should record the array index in the output).
+
+## Optimize Config
+
+```
+./optimizeConfig.sh \
+    -m "/afs/andrew.cmu.edu/usr16/kflorend/private/15418/project/15418-asst2/scan" \
+    -r "/afs/andrew.cmu.edu/usr16/kflorend/private/15418/project/15418-asst2/scan/cudaScan -m scan -i random -n 100" \
+    -c "/afs/andrew.cmu.edu/usr16/kflorend/private/15418/project/15418-asst2/scan/scan.cu" \
+    -b "BLOCK_DIM_X,,," \
+    -g "GRID_DIM_X,,," \
+    -v "2 0 0,4 0 0,8 0 0"
+```
+
+### Script Arguments
+
+* The `-m` flag specifies the absolute path to the directory containing the Makefile used to compile the program.
+* The `-r` flag specifies the command to run the program's executable.
+* The `-c` flag specifies the path to the .cu file to debug.
+* The `-b` flag specifies the names of the macros for blockDim.x, blockDim.y, and blockDim.z, respectively (can be empty if the user doesn't want to test out permutations of this value).
+* The `-g` flag specifies the names of the macros for gridDim.x, gridDim.y, and gridDim.z, respectively (can be empty if the user doesn't want to test out permutations of this value).
+* The `-v` flag specifies all combinations of values to try for these block and grid dimensions (if the corresponding dimension was left empty in the `-b` and `-g`).
+
+## Time Bottleneck - GPU and CUDA API Trace
+
+```
+./timeBottleneckTrace.sh \
+    -r "/afs/andrew.cmu.edu/usr16/kflorend/private/15418/project/15418-asst2/scan/cudaScan -m scan -i random -n 100" \
+```
+
+### Script Arguments
+
+* The `-r` flag specifies the command to run the program's executable.
