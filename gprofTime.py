@@ -5,10 +5,10 @@ name = []
 linenum = 0;
 
 with open('results.txt', 'r') as f:
-    if (linenum > 4):
+    if (linenum > 7):
         for line in f:
-            if not line.startswith(' '):
-                continue
+            if line.startswith(' '):
+                break
             cleanline = line.strip()
             arr = cleanline.split("\\s")
             time.append(arr[0])
