@@ -28,13 +28,13 @@ data = []
 for line in lines:
     if num >= 5:
         lineArr = line.split(',')
-        isint = True
+        isfloat = True
         for var in lineArr:
           try:
-              int(var)
+              float(var)
           except ValueError:
-              isint = False
-        if(isint):
+              isfloat = False
+        if(isfloat):
             start = float(lineArr[0])
             duration = float(lineArr[1])
             name = ''
