@@ -7,6 +7,6 @@ do
     esac
 done
 
-nvprof --print-gpu-trace --csv --log-file output/timeBottleneckGpuTrace.txt --normalized-time-unit us $runCmd
+nvprof --print-gpu-trace --csv --log-file output/memoryBottleneckGpuTrace.txt --normalized-time-unit us $runCmd
 
 python3 memoryBottleneck.py
