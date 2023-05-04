@@ -5,16 +5,26 @@ name = []
 linenum = 0;
 
 for line in open('results.txt', 'r'):
-    if (linenum > 5):
-        if line.startswith(' '):
+    if (linenum == 4):
+        index = line.find("name")
+    if (linenum > 4):
+        if line in ['\n', '\r\n']:
             break
         cleanline = line.strip()
-        arr = cleanline.split("\\s")
+        arr = line.split()
         time.append(arr[0])
-        name.append(arr[6])
+        name.append(line[index:].strip())
     linenum += 1
 
-plt.pie(time, labels=name)
+length = len(time)
+for i in range(length):
+    if (time[length - i - 1] == '0.00'):
+        time.pop(length - i - 1)
+        name.pop(length - i - 1)
+
+res = [i + '(' + j + ')' for i, j in zip(name, time)]
+
+plt.pie(time, labels=res)
 
 plt.title('Function Execution Times')
 
