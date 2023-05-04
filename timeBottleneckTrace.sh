@@ -7,5 +7,5 @@ do
     esac
 done
 
-nvprof --print-gpu-trace --csv --log-file output/timeBottleneckGpuTrace.txt $runCmd
-nvprof --print-api-trace --csv --log-file output/timeBottleneckApiTrace.txt $runCmd
+nvprof --print-gpu-trace --csv --log-file output/timeBottleneckGpuTrace.txt --normalized-time-unit us $runCmd
+nvprof --print-api-trace --csv --log-file output/timeBottleneckApiTrace.txt --normalized-time-unit us $runCmd

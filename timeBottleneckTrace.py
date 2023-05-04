@@ -1,8 +1,24 @@
-import datetime as dt
+import sys
 import matplotlib.pyplot as plt
 from matplotlib.collections import PolyCollection
 
-file1 = open('output/timeBottleneckGpuTrace.txt', 'r')
+if len(sys.argv) <= 1:
+    print("Not enough arguments passed in.")
+    exit()
+
+trace = sys.argv[1]
+
+traceStr = ""
+if trace == "gpu":
+    traceStr = "Gpu"
+elif trace == "api":
+    traceStr = "Api"
+else:
+    print(trace)
+    print("Unsupported trace type (either 'gpu' or 'api').")
+    exit()
+
+file1 = open(f'output/timeBottleneck{traceStr}Trace.txt', 'r')
 lines = file1.readlines()
 
 num = 0
@@ -12,10 +28,14 @@ data = []
 for line in lines:
     if num >= 5:
         lineArr = line.split(',')
-        start = float(lineArr[0]) * 1000 # convert milli to microseconds
+        start = float(lineArr[0])
         duration = float(lineArr[1])
-        nameArr = lineArr[18:-1]
-        name = ','.join(nameArr)
+        name = ''
+        if trace == "gpu":
+            nameArr = lineArr[18:-1]
+            name = ','.join(nameArr)
+        else:
+            name = lineArr[2]
         data.append((start, duration, name))
         catSet.add(name)
     num += 1
@@ -54,4 +74,4 @@ ax.set_xlabel("Time (microseconds)")
 
 ax.set_yticks(yticks)
 ax.set_yticklabels(yticklabels)
-fig.savefig('output/timeBottleneckGpuTimeline.png',dpi=300, bbox_inches = "tight")
+fig.savefig(f'output/timeBottleneck{traceStr}Timeline.png',dpi=300, bbox_inches = "tight")
