@@ -12,7 +12,7 @@ for line in open('output/results.txt', 'r'):
             break
         cleanline = line.strip()
         arr = line.split()
-        isint = true
+        isint = True
         for var in arr:
           try:
               int(var)
