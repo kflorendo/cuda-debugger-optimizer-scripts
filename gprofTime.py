@@ -4,7 +4,7 @@ time = []
 name = []
 linenum = 0;
 
-for line in open('output/results.txt', 'r'):
+for line in open('output/gprofResults.txt', 'r'):
     if (linenum == 4):
         index = line.find("name")
     if (linenum > 4):

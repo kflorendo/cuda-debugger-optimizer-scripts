@@ -19,7 +19,7 @@ $runCmd
 
 execute=${runCmd%% *}
 #gprof call
-gprof ${execute} gmon.out > output/results.txt
+gprof ${execute} gmon.out > output/gprofResults.txt
 
 rm gmon.out
 
