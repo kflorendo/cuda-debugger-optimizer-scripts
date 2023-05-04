@@ -11,4 +11,4 @@ with open("output/threadbp.txt", "w") as file:
     pass
 
 with open("output/threadbp.txt", "w") as file:
-    file.writelines("%s\n" % thread for thread in ordered)
+    file.writelines("%s" % thread for thread in ordered)
