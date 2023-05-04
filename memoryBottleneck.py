@@ -1,23 +1,55 @@
+from cycler import cycler
 import matplotlib.pyplot as plt
 
-file1 = open(f'output/timeBottleneckGpuTrace.txt', 'r')
+file1 = open(f'output/memoryBottleneckGpuTrace.txt', 'r')
 lines = file1.readlines()
 
-num = 0
-catSet = set()
-data = []
+time = []
+staticMem = []
+dynamicMem = []
+size = []
+throughput = []
+name = []
+linenum = 0
 
 for line in lines:
-    if num >= 5:
-        lineArr = line.split(',')
-        start = float(lineArr[0])
-        staticMem = float(lineArr[9])
-        dynamicMem = float(lineArr[10])
-        size = float(lineArr[11])
-        throughput = float(lineArr[12])
+    if linenum >= 5:
+        cleanline = line.strip()
+        lineArr = cleanline.split(',')
+        time.append(lineArr[0])
+        staticMem.append(lineArr[9])
+        dynamicMem.append(lineArr[10])
+        size.append(lineArr[11])
+        throughput.append(lineArr[12])
         nameArr = lineArr[18:-1]
-        name = ','.join(nameArr)
-        data.append((start, staticMem, dynamicMem, size, throughput, name))
-    num += 1
+        name.append(','.join(nameArr))
+    linenum += 1
 
-#TODO: graph
+
+timestatX = {}
+timestatY = {}
+for i in range(len(name)):
+    if name[i] in timestatX:
+        timestatX[name[i]].append(time[i])
+    else:
+        timestatX[name[i]] = [time[i]]
+    
+    if name[i] in timestatY:
+        timestatY[name[i]].append(staticMem[i])
+    else:
+        timestatY[name[i]] = [staticMem[i]]
+
+default_cycler = (cycler(color=['r', 'g', 'b', 'y']) +
+                  cycler(linestyle=['-', '--', ':', '-.']))
+
+
+plt.rc('axes', prop_cycle=default_cycler)
+
+for each in timestatX:
+    plt.plot(timestatX[each], timestatY[each], label = each)
+
+plt.title('staticMem vs Time')
+plt.xlabel('staticMem')
+plt.ylabel('Time(s)')
+plt.savefig("timestat", dpi='figure', format=None)
+plt.clf()
