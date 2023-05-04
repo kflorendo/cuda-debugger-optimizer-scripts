@@ -29,28 +29,29 @@ for line in lines:
 timestatX = {}
 timestatY = {}
 for i in range(len(name)):
-    if name[i] in timestatX:
-        timestatX[name[i]].append(time[i])
-    else:
-        timestatX[name[i]] = [time[i]]
-    
-    if name[i] in timestatY:
-        timestatY[name[i]].append(staticMem[i])
-    else:
-        timestatY[name[i]] = [staticMem[i]]
+    if (time[i] != ""):
+        if name[i] in timestatX:
+            timestatX[name[i]].append(time[i])
+        else:
+            timestatX[name[i]] = [time[i]]
+        
+        if name[i] in timestatY:
+            timestatY[name[i]].append(staticMem[i])
+        else:
+            timestatY[name[i]] = [staticMem[i]]
 
-default_cycler = (cycler(color=['r', 'g', 'b', 'y']) +
+default_cycler = (cycler(color=['r', 'g', 'b', 'y', 'm', 'c']) +
                   cycler(linestyle=['-', '--', ':', '-.']))
 
 
 plt.rc('axes', prop_cycle=default_cycler)
 
 for each in timestatX:
-    plt.plot(timestatX[each], timestatY[each], label = each)
+    plt.plot(float(timestatX[each]), float(timestatY[each]), label = each)
 
 plt.title('staticMem vs Time')
 plt.ylabel('staticMem')
 plt.xlabel('Time(s)')
-leg = plt.legend(loc='upper right')
+leg = plt.legend(loc='bottom center')
 plt.savefig("timestat", dpi='figure', format=None)
 plt.clf()
