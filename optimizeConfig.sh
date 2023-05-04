@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo "hello world"
-
 while getopts m:r:c:b:g:v: flag
 do
     case "${flag}" in
