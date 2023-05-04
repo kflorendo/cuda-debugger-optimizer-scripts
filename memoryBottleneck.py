@@ -31,14 +31,14 @@ timestatY = {}
 for i in range(len(name)):
     if (time[i] != ""):
         if name[i] in timestatX:
-            timestatX[name[i]].append(time[i])
+            timestatX[name[i]].append(float(time[i]))
         else:
-            timestatX[name[i]] = [time[i]]
+            timestatX[name[i]] = [float(time[i])]
         
         if name[i] in timestatY:
-            timestatY[name[i]].append(staticMem[i])
+            timestatY[name[i]].append(float(staticMem[i]))
         else:
-            timestatY[name[i]] = [staticMem[i]]
+            timestatY[name[i]] = [float(staticMem[i])]
 
 default_cycler = (cycler(color=['r', 'g', 'b', 'y', 'm', 'c']))
 
@@ -46,7 +46,7 @@ default_cycler = (cycler(color=['r', 'g', 'b', 'y', 'm', 'c']))
 plt.rc('axes', prop_cycle=default_cycler)
 
 for each in timestatX:
-    plt.plot(float(timestatX[each]), float(timestatY[each]), label = each)
+    plt.plot(timestatX[each], timestatY[each], label = each)
 
 plt.title('staticMem vs Time')
 plt.ylabel('staticMem')
