@@ -88,8 +88,8 @@ touch output/optimizeConfig.txt
 IFS=' '
 for configVal in "${configVals[@]}"
 do
-	echo "config val: "
-	echo $configVal
+	#echo "config val: "
+	#echo $configVal
 	read -a config <<< "${configVal}"
 	if [ "$blockDimXSet" = true ] ; then
                 sed -i -E "s/#define +${blockDimXVar}.*/#define ${blockDimXVar} ${config[0]}/" $cuPath
@@ -110,11 +110,11 @@ do
                 sed -i -E "s/#define +${gridDimZVar}.*/#define ${gridDimZVar} ${config[5]}/" $cuPath
 	fi
 	
-	(cd $makeDir && make)
+	#(cd $makeDir && make)
 	for i in {1..3}
 	do
 		start_time=$(date +%s.%6N)
-		$runCmd
+		#$runCmd
 		end_time=$(date +%s.%6N)
 		elapsed=$(echo "scale=6; $end_time - $start_time" | bc)
 		echo "${configVal} ${elapsed}" >> output/optimizeConfig.txt
@@ -124,3 +124,5 @@ done
 # copy back original contents
 cp tempCu $cuPath
 rm tempCu
+
+python3 config.py output/optimizeConfig.txt
