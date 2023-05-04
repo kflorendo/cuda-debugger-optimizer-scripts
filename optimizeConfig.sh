@@ -122,5 +122,3 @@ done
 # copy back original contents
 cp tempCu $cuPath
 rm tempCu
-
-python3 config.py output/optimizeConfig.txt
