@@ -68,11 +68,11 @@ sed -i "${lineNum} i printf(\"${prefix} %d %d %d %d %d %d %p ${varFormat} %d\\\\
 
 (cd $makeDir && make)
 # write to file
-$runCmd > out.txt
+$runCmd > output/out.txt
 
 # filter output file
-sed -i "/^${prefix}/!d" out.txt
-sed -i "s/${prefix} //" out.txt
+sed -i "/^${prefix}/!d" output/out.txt
+sed -i "s/${prefix} //" output/out.txt
 
 # associative array (dict)
 declare -A written
@@ -81,7 +81,7 @@ while IFS= read -r line; do
     data="$line"
     stringarray=($data)
     written[${stringarray[6]}]="${written[${stringarray[6]}]}${written[${stringarray[6]}]:+ }${stringarray[0]},${stringarray[1]},${stringarray[2]},${stringarray[3]},${stringarray[4]},${stringarray[5]},${stringarray[8]},${stringarray[7]}"
-done < out.txt
+done < output/out.txt
 
 touch output/threadOverwrite.txt
 > output/threadOverwrite.txt
@@ -105,4 +105,4 @@ done
 # copy back original contents
 cp tempCu $cuPath
 rm tempCu
-rm out.txt
+rm output/out.txt
