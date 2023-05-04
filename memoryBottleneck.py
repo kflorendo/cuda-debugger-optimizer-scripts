@@ -29,7 +29,7 @@ for line in lines:
 timestatX = {}
 timestatY = {}
 for i in range(len(name)):
-    if (time[i] != ""):
+    if (staticMem[i] != ''):
         if name[i] in timestatX:
             timestatX[name[i]].append(float(time[i]))
         else:
