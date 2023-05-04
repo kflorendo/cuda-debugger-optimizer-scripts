@@ -29,11 +29,10 @@ for line in lines:
     if num >= 5:
         lineArr = line.split(',')
         isfloat = True
-        for var in lineArr:
-          try:
-              float(var)
-          except ValueError:
-              isfloat = False
+        try:
+            float(lineArr[0])
+        except:
+            isfloat = False
         if(isfloat):
             start = float(lineArr[0])
             duration = float(lineArr[1])
