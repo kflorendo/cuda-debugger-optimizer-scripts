@@ -40,8 +40,7 @@ for i in range(len(name)):
         else:
             timestatY[name[i]] = [staticMem[i]]
 
-default_cycler = (cycler(color=['r', 'g', 'b', 'y', 'm', 'c']) +
-                  cycler(linestyle=['-', '--', ':', '-.']))
+default_cycler = (cycler(color=['r', 'g', 'b', 'y', 'm', 'c']))
 
 
 plt.rc('axes', prop_cycle=default_cycler)
