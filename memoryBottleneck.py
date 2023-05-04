@@ -49,7 +49,8 @@ for each in timestatX:
     plt.plot(timestatX[each], timestatY[each], label = each)
 
 plt.title('staticMem vs Time')
-plt.xlabel('staticMem')
-plt.ylabel('Time(s)')
+plt.ylabel('staticMem')
+plt.xlabel('Time(s)')
+leg = plt.legend(loc='upper right')
 plt.savefig("timestat", dpi='figure', format=None)
 plt.clf()
