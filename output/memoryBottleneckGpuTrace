@@ -1,0 +1,56 @@
+==30153== NVPROF is profiling process 30153, command: /afs/andrew.cmu.edu/usr16/kflorend/private/15418/project/15418-asst2/scan/cudaScan -m scan -i random -n 100
+==30153== Profiling application: /afs/andrew.cmu.edu/usr16/kflorend/private/15418/project/15418-asst2/scan/cudaScan -m scan -i random -n 100
+==30153== Profiling result:
+"Start","Duration","Grid X","Grid Y","Grid Z","Block X","Block Y","Block Z","Registers Per Thread","Static SMem","Dynamic SMem","Size","Throughput","SrcMemType","DstMemType","Device","Context","Stream","Name","Correlation_ID"
+us,us,,,,,,,,B,B,B,MB/s,,,,,,,
+328426.966000,1.504000,,,,,,,,,,400,253.636786,"Pageable","Device","NVIDIA GeForce RTX 2080 (0)","1","7","[CUDA memcpy HtoD]",115
+328482.550000,4.288000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","upsweep_kernel(int, int, int*)",117
+328488.886000,3.424000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","upsweep_kernel(int, int, int*)",118
+328492.982000,3.456000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","upsweep_kernel(int, int, int*)",119
+328497.014000,4.000000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","upsweep_kernel(int, int, int*)",120
+328501.622000,4.032000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","upsweep_kernel(int, int, int*)",121
+328506.358000,4.000000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","upsweep_kernel(int, int, int*)",122
+328511.030000,3.072000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","upsweep_kernel(int, int, int*)",123
+328521.430000,3.040000,1,1,1,1,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","last_elt_kernel(int, int*)",125
+328530.806000,4.416000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","downsweep_kernel(int, int, int*)",127
+328536.022000,3.616000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","downsweep_kernel(int, int, int*)",128
+328540.374000,3.648000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","downsweep_kernel(int, int, int*)",129
+328544.822000,4.384000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","downsweep_kernel(int, int, int*)",130
+328549.878000,4.320000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","downsweep_kernel(int, int, int*)",131
+328554.934000,4.160000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","downsweep_kernel(int, int, int*)",132
+328559.670000,4.192000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","downsweep_kernel(int, int, int*)",133
+328575.478000,1.920000,,,,,,,,,,400,198.682149,"Device","Pageable","NVIDIA GeForce RTX 2080 (0)","1","7","[CUDA memcpy DtoH]",136
+328592.693000,1.216000,,,,,,,,,,400,313.708656,"Pageable","Device","NVIDIA GeForce RTX 2080 (0)","1","7","[CUDA memcpy HtoD]",138
+328595.701000,3.680000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","upsweep_kernel(int, int, int*)",140
+328599.989000,3.904000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","upsweep_kernel(int, int, int*)",141
+328604.533000,3.712000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","upsweep_kernel(int, int, int*)",142
+328608.885000,4.000000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","upsweep_kernel(int, int, int*)",143
+328613.557000,4.000000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","upsweep_kernel(int, int, int*)",144
+328618.229000,4.000000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","upsweep_kernel(int, int, int*)",145
+328622.901000,3.104000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","upsweep_kernel(int, int, int*)",146
+328632.373000,3.008000,1,1,1,1,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","last_elt_kernel(int, int*)",148
+328641.525000,4.320000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","downsweep_kernel(int, int, int*)",150
+328646.453000,3.808000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","downsweep_kernel(int, int, int*)",151
+328650.869000,3.904000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","downsweep_kernel(int, int, int*)",152
+328655.413000,4.416000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","downsweep_kernel(int, int, int*)",153
+328660.469000,4.288000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","downsweep_kernel(int, int, int*)",154
+328665.525000,4.128000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","downsweep_kernel(int, int, int*)",155
+328670.325000,4.192000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","downsweep_kernel(int, int, int*)",156
+328682.037000,1.888000,,,,,,,,,,400,202.049643,"Device","Pageable","NVIDIA GeForce RTX 2080 (0)","1","7","[CUDA memcpy DtoH]",159
+328696.885000,1.216000,,,,,,,,,,400,313.708656,"Pageable","Device","NVIDIA GeForce RTX 2080 (0)","1","7","[CUDA memcpy HtoD]",161
+328699.829000,4.032000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","upsweep_kernel(int, int, int*)",163
+328704.565000,3.136000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","upsweep_kernel(int, int, int*)",164
+328708.405000,3.616000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","upsweep_kernel(int, int, int*)",165
+328712.629000,4.032000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","upsweep_kernel(int, int, int*)",166
+328717.301000,4.032000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","upsweep_kernel(int, int, int*)",167
+328721.973000,4.032000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","upsweep_kernel(int, int, int*)",168
+328726.709000,3.072000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","upsweep_kernel(int, int, int*)",169
+328736.053000,3.008000,1,1,1,1,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","last_elt_kernel(int, int*)",171
+328745.076000,3.872000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","downsweep_kernel(int, int, int*)",173
+328749.684000,4.512000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","downsweep_kernel(int, int, int*)",174
+328754.804000,4.416000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","downsweep_kernel(int, int, int*)",175
+328759.924000,3.840000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","downsweep_kernel(int, int, int*)",176
+328764.468000,4.256000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","downsweep_kernel(int, int, int*)",177
+328769.492000,4.160000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","downsweep_kernel(int, int, int*)",178
+328774.388000,4.192000,1,1,1,128,1,1,16,0,0,,,,,"NVIDIA GeForce RTX 2080 (0)","1","7","downsweep_kernel(int, int, int*)",179
+328785.748000,1.632000,,,,,,,,,,400,233.743705,"Device","Pageable","NVIDIA GeForce RTX 2080 (0)","1","7","[CUDA memcpy DtoH]",182
