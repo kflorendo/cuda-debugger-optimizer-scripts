@@ -7,7 +7,7 @@ gridZ = {}
 blockX = {}
 blockY = {}
 blockZ = {}
-linenum = 0;
+linenum = 0
 fileName = sys.argv[1]
 
 for line in open(fileName, 'r'):
