@@ -17,7 +17,8 @@ echo "Path to .cu file: $cuPath";
 # Run code, creates gmon
 $runCmd
 
+execute=${runCmd%' '*};;
 #gprof call
-gprof exe_prog gmon.out > results.txt
+gprof ${execute} gmon.out > results.txt
 
 python3 gprofTime.py
