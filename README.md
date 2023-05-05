@@ -113,7 +113,7 @@ An example of running the script is
     -c "/afs/andrew.cmu.edu/usr16/kflorend/private/15418/project/15418-asst2/scan/scan.cu" \
     -b "BLOCK_DIM_X,,," \
     -g "GRID_DIM_X,,," \
-    -v "2 0 0,4 0 0,8 0 0"
+    -v "2 0 0 0 0 0,4 0 0 0 0 0"
 ```
 
 ### Script Arguments
