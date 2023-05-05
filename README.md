@@ -166,8 +166,8 @@ The script `speedup.sh` claculates the speedup between the runtimes of a sequent
 An example of running the script is
 ```
 ./speedup.sh \
-    -s "/afs/andrew.cmu.edu/usr16/kflorend/private/15418/project/15418-asst2/test/threadOverwriteTest1/sequential1" \
-    -p "/afs/andrew.cmu.edu/usr16/kflorend/private/15418/project/15418-asst2/test/threadOverwriteTest1/test1"
+    -s "/afs/andrew.cmu.edu/usr16/kflorend/private/15418/project/test/threadOverwriteTest1/sequential1" \
+    -p "/afs/andrew.cmu.edu/usr16/kflorend/private/15418/project/test/threadOverwriteTest1/test1"
 ```
 
 ### Script Arguments
